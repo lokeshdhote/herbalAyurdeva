@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" /><link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+</head>
+<style>
+    body{
+        background-color: rgba(238, 215, 185, 0.804);
+
+    }
+    .hey{
+        background-color: rgb(231, 200, 159);
+    }
+</style>
+<body>
+   
+    <div class="hey top w-screen h-[4vw] fixed top-0  text-zinc-700 z-11 text-center flex items-center gap-[40vw] px-[2vw]  py-4 ">
+        <a href="/back"><i class="ri-arrow-left-s-line  text-zinc-700 text-2xl"></i></a>
+        <h1 class="hc text-center text-xl font-bold text-zinc-700" > Herbal Community  </h1>
+    </div>
+   
+    
+    <div id="remedy" class="overflow-hidden pt-[4vw] py-[2vw]">
+        <div id="screen-remedy" class="flex h-[40vw] pt-[4vw] py-[2vw ] px-[5vw]">
+            <div id="left" class="p-[2vw]">
+                <img src="/images/uploads/<%= remedie.image %>" alt="" class="h-[20vw] w-[20vw] border border-gray-300 shadow-lg">
+            </div>
+            <div id="right" class="w-3/4 mt-[7vw]  pl-[2vw]">
+                <div id="remedy-title" class="font-bold text-3xl">
+                    <h2><%= remedie.remedieName %></h2>
+                </div>
+                <div id="description" class="mt-[2vw]">
+                    <p><%=remedie.description %></p>
+                </div>
+            </div>
+        </div>
+       
+      
+        <div id="content" class=" mx-10">
+            <div id="ingredient">
+                <h1 class="text-3xl font-bold">Ingredients:</h1>
+                <ul class="mt-4">
+                   <h1><%=remedie.ingredients%></h1>
+                </ul>
+            </div>
+            <div id="method" class="mt-8">
+                <h1 class="text-3xl font-bold">Description:</h1>
+                <ol class="mt-4">
+                    <h1><%=remedie.description %></h1>
+                </ol>
+            </div>
+            <div id="dosage" class="mt-8">
+                <h1 class="text-3xl font-bold">Dosage:</h1>
+                <p class="mt-4"><%=remedie.dosage %></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

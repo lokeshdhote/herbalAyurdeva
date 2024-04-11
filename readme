@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/><link
+href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+rel="stylesheet"
+/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style></style>
+<style>
+    #main-content{
+/* background-color:rgb(200, 232, 200); */
+
+}
+.category.selected {
+color: rgba(165, 97, 42, 0.873);
+/* text-decoration: underline; */
+}
+.cards img{
+height: 100%;
+width: 100%;
+object-fit: cover;
+object-position: center;
+}
+
+.cards{
+height: 18vw;
+width:18vw;
+border-radius: 5px;
+position: relative;
+overflow: hidden;
+display: flex;
+flex-wrap: wrap;
+margin-top: 2vw;
+
+
+gap: 4vw;
+
+
+}
+.cards-wrapper{
+width: 100%;
+align-items: center;
+height: 30vw;
+
+padding: 4vw 4vw;
+display: flex;
+flex-wrap: wrap;
+gap: 5vw;
+}
+.bottom{
+position: absolute;
+height: 40%;
+width: 100%;
+background: linear-gradient(transparent,black);
+bottom: -40%;
+transition: all ease 0.4s;
+padding: 30px;
+color: white;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 6px;
+}
+.cards:hover .bottom{
+bottom: 0;
+}
+.bottom h5{
+height: 30px;
+width: 30px;
+background-color: white;
+border-radius: 50%;
+color: black;
+text-align: center;
+padding: 6px 5px;
+font-size: 15px;
+font-weight: 100;
+}
+.bottom h4{
+font-size: 2vw;
+color: white;
+font-weight: 600;
+}
+
+</style>
+
+<body>
+    <nav>
+        <div id="nav-logo">
+            <div id="logo1">
+                <img src="herbal_logo-removebg-preview.png" alt="">
+                <div id="logo-head">
+                    <h1>herbal</h1>
+                    <span>hands</span>
+                </div>
+            </div>
+            <p>Roots & Remedies: Rural Women Rise</p>
+        </div>
+        <div id="nav2 " class=" gilroy font-[500] flex gap-12" >
+        
+            <a class="capitalize gilroy text-xl  " href="/home"><i class="ri-home-4-line"></i>home</a>
+            <a class="capitalize gilroy text-xl  " href="/remedieSearch"><i class="ri-capsule-fill"></i>remedies</a>
+            <a class="capitalize gilroy text-xl  " href="/product"><i class="ri-store-line"></i>market place</a>
+            <a class="capitalize gilroy text-xl  " href="/community"><i class="ri-community-fill"></i>community</a>
+        </div>
+        <div id="nav3">
+         <button class="btn-pink"><h4>create a post</h4></button>
+         <div id="profile">
+            <img src="profile-removebg-preview.png" alt="">
+         </div>
+        </div>
+    </nav>
+    <div id="main">
+        <div id="main-content">
+            <div id="left">
+               <div id="gola">
+                   <img src="https://images.unsplash.com/photo-1581600140682-d4e68c8cde32?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D" alt="">
+               </div>
+               <div id="flex">
+                   <div id="head">
+                       <h1>welcome to HERBALHANDS,</h1> 
+                       <h1>your trusted destination</h1>
+                       <h1>for homemade remedies</h1>
+                       <h1>and wellness wisdom.</h1>
+                   </div>
+                   
+                  <div id="left-search"> 
+                   <button id="searchTab"><div id="one"><i class="ri-search-line"></i><h6>What will you craft for your well-being today?....</h6></div>
+                       <div id="div">
+                           <i class="ri-mic-fill"></i>
+                       </div></button> 
+                  </div>
+               </div>
+       
+               
+                 
+                 
+               </div> 
+            
+               <div id="right">
+                   <div id="circle">
+                       <img src="https://images.unsplash.com/photo-1483137140003-ae073b395549?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhlcmJhbCUyMHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="">
+                   </div>
+                
+               </div>
+               </div>
+               <div id="page1">
+                <div id="lefty">
+                    <h1>
+                        Empowering Rural Women: Harnessing Traditional Health Wisdom Through Digital Collaboration</h1>
+                 <p>Our platform facilitates rural women in sharing and documenting homemade remedies for various ailments, fostering collaboration and community-driven healthcare solutions. It serves as a user-friendly repository of traditional health practices, empowering women as vital contributors to community well-being. With features like collaborative spaces, documented remedies, and educational resources, we aim to preserve traditional wisdom and improve health outcomes in rural areas.</p>
+                </div>
+                <div id="righty">
+                    <div id="swiper-div">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                              <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1707811179851-c1f93698ad46?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cnVyYWwlMjBlbXBvd2VybWVudHxlbnwwfHwwfHx8MA%3D%3D" alt=""></div>
+                              <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D" alt=""></div>
+                              <div class="swiper-slide"><img src="https://images.unsplash.com/flagged/photo-1553617569-8ef7a8da3146?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D" alt=""></div>
+                              <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1441307811206-a12c74889338?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+               </div>
+               <div id="page-content">
+                <p>Step into a world where rural women unite on our intuitive platform, exchanging homemade remedies and nurturing a culture of collective wellness. Here, we cherish and preserve the timeless wisdom passed down through generations, enriching lives and promoting holistic health practices. Join hands with us as we empower women to be champions of their own well-being, forging a path towards sustainable healthcare solutions in rural communities. Together, we harness the strength of community collaboration, creating a ripple effect of positive change that transcends borders and transforms lives.</p>
+               </div>
+                        
+               <div id="page2" class=" w-screen h-screen relative">
+                <h1 class=" text-[4vw] font-[300]  text-center text-[#AE7444] mt-[2vw] ">CATEGORY</h1>
+                <div id="categories" class="flex items-center  justify-center gap-[6vw] mt-[2vw]">
+                    <h4 class="category" data-category="category1">HEALTH CARE</h4>
+                    <h4 class="category" data-category="category2">SKIN CARE</h4>
+                    <h4 class="category" data-category="category3">HAIR CARE</h4>
+                    <h4 class="category" data-category="category4">CHILD CARE</h4>
+    
+                </div>
+                <div id="cards-container" class="w-full   "></div>
+            </div>
+<div id="page9">
+    <div class="upar">
+        <h1>Empowering Rural Women Through Traditional Health Solutions</h1>
+        <h2>Our platform serves as a collective</h2>
+        <span class="text first-txt"> repository of </span>
+        <span class="text sec-txt"> traditional remedies.</span>
+     
+    </div>
+</div>
+
+<div id="elems">
+    <div class="container">
+     <div class="elem">
+        <img src="tradi1.png" alt="">
+     </div>
+       <div class="elem">
+        <img src="tradi2.jpeg" alt="">
+       </div>
+      <div class="elem">
+        <img src="tradi3.png" alt="">
+      </div>
+       <div class="elem">
+        <img src="tradi4.png" alt="">
+       </div>
+       <div class="elem">
+        <img src="tradi5.jpeg" alt="">
+       </div>
+     <div class="elem">
+        <img src="tradi6.png" alt="">
+     </div>
+      <div class="elem">
+        <img src="tradi7.png" alt="">
+      </div>
+       <div class="elem">
+        <img src="tradi8.jpeg" alt="">
+       </div>
+        
+       
+    </div>
+    <div class="container">
+        <div class="elem">
+           <img src="tradi1.png" alt="">
+        </div>
+          <div class="elem">
+           <img src="tradi2.jpeg" alt="">
+          </div>
+         <div class="elem">
+           <img src="tradi3.png" alt="">
+         </div>
+          <div class="elem">
+           <img src="tradi4.png" alt="">
+          </div>
+          <div class="elem">
+           <img src="tradi5.jpeg" alt="">
+          </div>
+        <div class="elem">
+           <img src="tradi6.png" alt="">
+        </div>
+         <div class="elem">
+           <img src="tradi7.png" alt="">
+         </div>
+          <div class="elem">
+           <img src="tradi8.jpeg" alt="">
+          </div>
+           
+          
+       </div>
+</div>
+
+<footer>
+    <div id="vast">
+        <div id="first">
+            <img src="herbal_logo-removebg-preview.png" alt="">
+            <h1>HERBAL HANDS</h1>
+        </div>
+        <div id="second">
+            <h4>ABOUT US</h4>
+            <h4>COMMUNITY GUIDELINES</h4>    
+        </div>
+        <div id="third">
+            <h4>CONTACT US</h4>
+            <h4>PRIVACY POLICY</h4>     
+        </div>
+        <div id="three">
+            <h4>FAQS</h4>
+            <h4>Bookmarks</h4>
+        </div>
+        <div id="extra">
+            <h4>TERMS TO USE</h4>
+            <h4>FEEDBACK</h4>
+        </div>
+        <div id="fourth">
+            <h4><div id="language-selector">
+                <h1>Language</h1>
+                 <h3>🌐india</h3>
+            </div>
+            </h4>
+        </div>
+    </div>
+ <div id="down">
+    <h2>FOLLOW US ON</h2>
+    <div id="box">
+        <div id="box1"><i class="ri-facebook-line"></i></div>
+        <div id="box2"><i class="ri-messenger-line"></i></div>
+        <div id="box3"><i class="ri-instagram-line"></i></div>
+        <div id="box4"><i class="ri-twitter-line"></i></div>
+    </div>
+   
+ </div>
+    
+</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js"></script>
+</body>
+</html>

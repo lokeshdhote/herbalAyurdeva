@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      background-color: rgb(216, 200, 178);
+    }
+
+    .right::-webkit-scrollbar {
+      display: none;
+    }
+    #top{
+      background-color: burlywood;
+
+    }
+  </style>
+  <body class="">
+    <div class="main">
+      <div id="top"
+        class="top w-screen h-[4vw] text-zinc-700 fixed top-0  z-11 text-center flex items-center gap-[40vw] px-[2vw] py-4"
+      >
+        <a href="/back"
+          ><i class="ri-arrow-left-s-line text-zinc-700 text-2xl"></i
+        ></a>
+        <h1 class="hc text-center text-xl font-bold text-zinc-700">
+          Herbal Community
+        </h1>
+      </div>
+      <div class="com mt-[4vw] flex justify-center">
+        <div class="right w-scren h-[38vw] overflow-auto flex flex-col">
+          <% common.forEach((Common) =>{ %>
+          <div class="post w-screen h-[30vw] px-[2vw] py-5">
+            <div class="up flex items-center">
+              <div class="usr gap-[2vw] flex items-center text-white">
+                <img
+                  src="/images/websiteimages/w.png"
+                  alt="pro"
+                  class="rounded-full w-7 h-7"
+                />
+                <h6 class="font-[400] text-xs lowercase text-zinc-700">
+                  <%=user.username %>
+                </h6>
+              </div>
+            </div>
+            <div class="para">
+              <p class="text-black normal-case text-s font-[400]">
+                <%=Common.review %>
+              </p>
+            </div>
+            <div class="pho">
+              <img
+                src="/images/uploads/<%= Common.reviewImage %>"
+                alt="image not found"
+                class="w-[15vw] h-[15vw] object-cover"
+              />
+            </div>
+            <div
+              class="act py-[0.5vw] flex items-center justify-around text-white"
+            >
+              <div class="thumb">
+                <% if(Common.like.indexOf(user._id) === -1) { %>
+                <a href="/like/<%=Common._id %>" class="flex" >
+                  <i class="ri-heart-3-line text-xl text-black"></i>
+                  <h2 class=" text-xl text-black"> <%= Common.like.length %></h2> 
+                </a>
+
+                <% } else{ %>
+                <a href="/like/<%=Common._id %>"  class="flex" >
+                  <i class="ri-heart-3-fill text-xl text-black"></i>
+                  <h2 class=" text-xl text-black"> <%= Common.like.length %></h2>
+                </a>
+                <% } %>
+              </div>
+              <div class="chat">
+                <i class="ri-chat-3-line text-xl text-black"></i>
+              </div>
+              <div class="share" onclick="shareOnWhatsApp('<%= Common._id %>')">
+                <i class="ri-share-2-line text-xl text-black"></i>
+              </div>
+            </div>
+          </div>
+          <% })%>
+
+          <div
+            class="add fixed bottom-0 left-0 z-10 w-full rounded-full flex justify-center pb-[0.7vw]"
+          >
+            <div
+              class="three flex items-center justify-between bg-white rounded-full w-[80%]"
+            >
+              <form
+                action="/sharereview" method="post"enctype="multipart/form-data"class="reviewForm flex items-center justify-between w-full px-5"
+              >
+                <input
+                  class="review text w-[50vw] rounded-full px-5 py-2 outline-none"  name="review"type="text" placeholder="write about that you liked"/>
+            
+                <input type="file" class="file" name="image" />
+                <input type="submit" value="submit" class="submit" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // function file(){
+    //     document.querySelector(".file").click()
+    // }
+
+    //         const response = await axios.post('/shareReview', {
+
+    // })
+    // console.log(response)
+
+    //
+    function shareOnWhatsApp(id) {
+      var message = encodeURIComponent(`localhost:3000/community/${id}`); // Encode the message
+      var whatsappUrl = "https://api.whatsapp.com/send?text=" + message;
+      window.open(whatsappUrl, "_blank");
+    }
+  </script>
+</html>

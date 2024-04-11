@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remedies</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body {
+      overflow-x: hidden;
+    }
+
+  .main {
+    /* background-color: rgb(200, 232, 200); */
+    overflow-x: hidden;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  nav{
+    height: 60px;
+    width: 100%;
+
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:burlywood;
+
+    color: black;
+    box-shadow: 5px 5px 10px #888888;
+    padding: 2vw 3vw;
+    font-weight: 100;
+  
+}
+
+
+#logo1{
+    display: flex;
+    align-items: center;
+    mix-blend-mode: difference;
+}
+
+#nav-logo h1{
+    margin-top: 7px;
+    margin-left: 0.5vw;
+    text-transform: uppercase;
+    color: rgb(12, 100, 12);
+      font-weight: 600;
+    font-size: 1.3vw;
+    line-height: 14px;
+}
+#nav-logo span{
+    margin-left: 3vw;
+    font-weight: 600;
+    font-size: 1.3vw;
+    line-height: 1px;
+    text-transform: uppercase;
+    color: rgb(12, 100, 12);
+}
+#nav-logo img{
+    margin-top: 8px;
+height:50px;
+width:50px;
+
+}
+#nav2{
+    display: flex;
+    align-items: center;
+gap: 60px;
+}
+#nav2 a{
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 1px;
+}
+#nav3{
+    display: flex;
+    align-items: center;
+gap: 30px;   
+}
+
+#nav3 a::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.8s;
+  }
+#nav3 a:hover::before {
+    transform: scaleX(1);
+  }
+
+button h4{
+    text-transform: capitalize;
+   font-weight: 600;
+   text-align: center;
+   margin-left: 0.1vw;
+   font-family: sans-serif;
+   font-size: 8px;
+   color:green;
+}
+#profile{
+    background-color: white;
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+}
+#profile img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.card{
+  background-color: rgb(216, 195, 168);
+}
+
+</style>
+
+<body>
+
+  <div class="main w-screen h-fit">
+    <nav class="mb-2">
+      <div id="nav-logo">
+          <div id="logo1">
+              <a href="/home">   <img src="/images/websiteimages/herbal_logo-removebg-preview.png" alt=""></a>
+              <div id="logo-head">
+                  <h1>herbal</h1>
+                  <span>hands</span>
+              </div>
+          </div>
+      </div>
+      <div id="nav2 " class=" gilroy font-[500] flex gap-12" >
+      
+          <a class="capitalize gilroy text-lg gap-4  " href="/home"><i class="ri-home-4-line"></i> home</a>
+          <a class="capitalize gilroy text-lg gap-4 " href="/remedieSearch"><i class="ri-capsule-fill"></i> remedies</a>
+          <a class="capitalize gilroy text-lg gap-4  " href="/product"><i class="ri-store-line"></i> market place</a>
+          <a class="capitalize gilroy text-lg gap-4  " href="/community"><i class="ri-community-fill"></i> community</a>
+      </div>
+      <div id="nav3">
+          <a class="capitalize font-[400]  text-sm bg-white text-black px-3 py-1 rounded-full  " href="/createRemedie">create a remides</a>
+            
+       <div id="profile">
+          <a href="/profile"> <img src="/images/websiteimages/profile-removebg-preview.png" alt=""></a>
+       </div>
+      </div>
+  </nav>
+
+ 
+
+
+  <div class="w-screen h-11 flex items-center justify-center">
+    <div class="pl-5 gap-2 flex items-center mt-5 ml-10 w-[40vw] h-10 rounded-full bg-white border border-gray-400">
+        <i class="ri-search-line"></i>
+        <input id="searchUser" class="outline-none w-[90%] h-8 pl-4 rounded-full" type="text" placeholder="Search">
+    </div>
+    <div class="ml-5 flex items-center">
+        <h4 class="underline">Filter:</h4>
+        <div id="hey" class="c ml-2">
+            <button onclick="applyFilter('cold')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">Cold</button>
+            <button onclick="applyFilter('cough')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">Cough</button>
+            <button onclick="applyFilter(' Fever')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"> Fever</button>
+           
+            <!-- Add more buttons for other common problems -->
+        </div>
+    </div>
+</div>
+
+
+
+  
+    </div>
+
+
+    <div id="con" class="lacard-container flex-col gap-2 flex px-[3vw] py-[4vw]">
+      <% remedie.forEach((remedie)=>{ %>
+       <div class="card text-center w-[100%] h-[20vw] flex items-center justify-between px-[7vw]  ">
+        <a href="/remedie/<%=remedie._id %>"> 
+          <div class="flex flex-col items-center justify-between ">
+            <div class="imgContain  w-[13vw] h-[13vw] mt-4   ">
+              <img class="w-full h-full object-fit" src="/images/uploads/<%= remedie.image %> " alt="">
+  
+            </div>
+            <div class="upload_user mt-[2vw] flex items-center justify-center gap-2 ">
+              <div class="h-[2vw] w-[2vw] ">
+                <img class="  h-full w-full object-fit rounded-full" src="/images/websiteimages/w.png" alt="*">
+              </div>
+            </a>
+              <div class="  flex items-center gap-[4vw]" >
+                <button class="up_user">
+                  <%= remedie.user.username %>
+                </button>
+                <a href="/remedieReport/<%=remedie._id %>" id="report" >Report</a>
+                <% if(remedie.remedielike.indexOf(user._id) === -1) { %>
+                  <a href="/remedielike/<%=remedie._id %>">
+                    <i class="ri-heart-3-line text-xl text-black"></i>
+                   <h2 class=" text-xl text-black"> <%= remedie.remedielike.length %></h2>
+                  </a>
+  
+                  <% } else{ %>
+                  <a href="/remedielike/<%=remedie._id %>">
+                    <i class="ri-heart-3-fill text-xl text-black"></i>
+                    <h2 class=" text-xl text-black"> <%= remedie.remedielike.length %></h2>
+                  </a>
+                  <% } %>
+               </div>
+  
+            </div>
+          </div>
+          <div>
+            <h3>
+              <%= remedie.remedieName %>
+            </h3>
+            <div class="dis mt-[2vw] w-[40vw] ">
+              <p>
+                <%=remedie.description %>
+              </p>
+            </div>
+  
+  
+          </div>
+        </div>
+        <% })%>
+    </div>
+
+  </div>
+
+  </div>
+
+
+  </div>
+
+
+
+
+  </div>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+    integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+       document.querySelector('#searchUser').addEventListener('input', async (event) => {
+
+const d = document.querySelector("#searchUser").value
+
+const searchinput = document.querySelector("#searchUser")
+
+const input = searchinput.value.trim()
+var remideData = [];
+try {
+
+var { data } = await axios.get(`/searchUser/${d}`)
+  remideData = data
+} catch (error) {
+  var { data } = await axios.get(`/get/all`);
+  remideData = data;
+
+}
+
+console.log(remideData)
+var clutter = ""
+remideData?.forEach(function (elem) {
+
+  clutter += `<div class="card text-center w-[100%] h-[20vw] flex items-center justify-between px-[7vw]  "  >
+
+<div class="flex flex-col items-center justify-between ">
+<div class="imgContain  w-[13vw] h-[13vw] mt-4   " >
+<img class="w-full h-full object-fit" src="/images/uploads/${elem.image} " alt="">
+
+</div>
+<div class="upload_user mt-[2vw] flex items-center justify-center gap-2 ">
+<div class="h-[2vw] w-[2vw] ">
+<img class=" h-full w-full object-fit rounded-full" src="/images/websiteimages/w.png" alt="*">
+</div>
+<button class="up_user">
+  ${elem.user.username}
+  </button>
+
+</div>
+</div>
+<div>
+<h3> ${elem.remedieName}</h3>
+  <div class="dis mt-[2vw] w-[40vw] ">
+    <p>${elem.description}</p>
+  </div>
+ 
+  
+</div>
+</div>`
+});
+
+document.querySelector("#con").innerHTML= clutter;
+
+})
+
+
+
+
+document.querySelector("#report").addEventListener("click", async function(){
+  
+  
+  var { data } = await axios.get(`/remedie/${remedie._id}`)
+  console.log(data)
+})
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+
+
+
+
+  </script>
+</body>
+
+</html>
