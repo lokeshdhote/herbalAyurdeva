@@ -60,7 +60,7 @@ router.get('/community',isLoggedIn,  async function(req, res, next) {
   const user = await userModel.findOne({
     username:req.session.passport.user
   })
-  const common  = await  Community.find({});
+  const common  = await  Community.find({}).populate("user");
 
 // console.log("Modified Like Array Length:", common.like.length);
 
@@ -114,9 +114,9 @@ res.redirect("/home");
 router.post('/sharereview',isLoggedIn,upload.single("image"), async function(req, res, next) {
 
 try {
-  // const user = await userModel.findOne({
-  //   username:req.session.passport.user
-  // });
+  const user = await userModel.findOne({
+    username:req.session.passport.user
+  });
   // // console.log(req.file.filename);
   // const community = await new Community({
   //   review : req.body.review,
@@ -128,7 +128,8 @@ try {
   // console.log('====================================');
   const c = await new Community({
     review : req.body.review,
-    reviewImage:req.file.filename
+    reviewImage:req.file.filename,
+    user:user._id
 
   }).save();
   console.log(c);
@@ -147,7 +148,7 @@ router.get("/searchUser/:name",async function(req, res, next){
         $regex:data,
         $options:"i"
       }
-    })
+    }).populate("user")
     
     res.status(200).json(allUser)
   } catch (error) {
@@ -158,7 +159,7 @@ router.get("/searchUser/:name",async function(req, res, next){
   const user = await userModel.findOne({username:req.session.passport.user})
 
     const remedie = await remedieModel.findOne({_id:req.params.remedi}).populate("user")
-    //  console.log( remedie)
+     console.log( remedie)
       res.render('remedie.ejs',{remedie,user} );
     });
     
@@ -237,7 +238,7 @@ console.log("Modified Like Array Length:", common.like.length);
 
 router.get("/get/all",async function(req, res, next){
   try {
-    const allUser = await remedieModel.find();
+    const allUser = await remedieModel.find().populate("user")
     
     res.status(200).json(allUser)
   } catch (error) {
@@ -289,20 +290,5 @@ res.redirect("/")
 
 
 
-/////expert session /////
-router.get('/experthome',  async function(req, res, next) {
-  res.render('experthome.ejs' );
-});
-router.get('/expertindex',  function(req, res, next) {
-  res.render('expertindex' );
-});
-router.get('/expertremedie',  async function(req, res, next) {
-  res.render('expertremedie.ejs' );
-});
-router.get('/expertprofile',  async function(req, res, next) {
-  res.render('expertprofile.ejs' );
-});
-
- 
 
 module.exports = router;
