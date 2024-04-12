@@ -9,7 +9,6 @@ const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const ExpertRouter = require('./routes/expert');
 const expertRouter = require('./routes/ExpertRoute');
 
 
@@ -30,14 +29,10 @@ app.use(expressSession({
 app.use(passport.initialize())
 app.use(passport.session())
 
-
 passport.serializeUser(usersRouter.serializeUser())
 passport.deserializeUser(usersRouter.deserializeUser())
 
-passport.serializeUser(ExpertRouter.serializeUser())
-passport.deserializeUser(ExpertRouter.deserializeUser())
 
- 
 
 app.use(logger('dev'));
 app.use(express.json());

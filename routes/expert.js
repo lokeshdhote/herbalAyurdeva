@@ -2,7 +2,7 @@ const  mongoose = require("mongoose")
 
 const plm = require("passport-local-mongoose")
 
-const expertSchema =  mongoose.Schema({
+const expertSchema = mongoose.Schema({
   expertname:String,
     expertemail:String,
     expertpassword:String,
@@ -12,6 +12,6 @@ const expertSchema =  mongoose.Schema({
     })
 
     expertSchema.plugin(plm)
-  
+    const expert = mongoose.model("expert",expertSchema)
 
-module.exports = mongoose.model("expert",expertSchema)
+module.exports = expert
