@@ -27,14 +27,15 @@ app.use(expressSession({
 
 
 
+
 app.use(passport.initialize())
 app.use(passport.session())
 
 passport.serializeUser(usersRouter.serializeUser())
 passport.deserializeUser(usersRouter.deserializeUser())
 
-passport.serializeUser(ExpertRouter.serializeUser())
-passport.deserializeUser(ExpertRouter.deserializeUser())
+// passport.serializeUser(ExpertRouter.serializeUser())
+// passport.deserializeUser(ExpertRouter.deserializeUser())
 
  
 
