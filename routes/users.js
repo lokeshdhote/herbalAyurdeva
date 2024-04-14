@@ -2,9 +2,7 @@ const  mongoose = require("mongoose")
 
 const plm = require("passport-local-mongoose")
 
-// mongoose.connect("mongodb://localhost:27017/herbalAuryeda")
-mongoose.connect("mongodb+srv://lokeshdhote2004:1IAIRPQOlkBEBofY@cluster0.kn0pnk1.mongodb.net/")
-// mongodb+srv://lokeshdhote2004:<password>@cluster0.kn0pnk1.mongodb.net/
+mongoose.connect("mongodb://127.0.0.1:27017/herbalAuryeda")
 
 const userSchema = mongoose.Schema({
     username:String,
@@ -19,6 +17,5 @@ const userSchema = mongoose.Schema({
         
     })
 
-    
 userSchema.plugin(plm)
 module.exports = mongoose.model("user",userSchema)

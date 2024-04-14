@@ -9,8 +9,8 @@ const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const ExpertRouter = require('./routes/expert');
-const expertRouter = require('./routes/ExpertRoute');
+// const ExpertRouter = require('./routes/expert');
+// const expertRouter = require('./routes/ExpertRoute');
 
 
 var app = express();
@@ -24,7 +24,6 @@ app.use(expressSession({
   saveUninitialized:false,
   secret:"hello bhai"
 }))
-
 
 
 
@@ -47,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/expert',expertRouter );
+// app.use('/expert',expertRouter );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
