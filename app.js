@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var  expressSession = require("express-session")
 const passport = require('passport');
+const MongoStore = require('connect-mongo')
 
 
 const indexRouter = require('./routes/index');
@@ -22,7 +23,15 @@ app.set('view engine', 'ejs');
 app.use(expressSession({
   resave:false,
   saveUninitialized:false,
-  secret:"hello bhai"
+  secret:"hello bhai",
+
+  cookie:{maxAge:2 * 60 * 60 * 1000},
+  store: MongoStore.create ({
+    mongoUrl:'mongodb://127.0.0.1:27017/herbalAuryeda',
+    autoRemove:'disabled'
+  
+  })
+  
 }))
 
 
