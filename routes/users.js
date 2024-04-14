@@ -2,7 +2,7 @@ const  mongoose = require("mongoose")
 
 const plm = require("passport-local-mongoose")
 
-mongoose.connect("mongodb://0.0.0.0:27017/herbalAuryeda")
+mongoose.connect("mongodb://localhost:27017/herbalAuryeda")
 
 const userSchema = mongoose.Schema({
     username:String,
